@@ -65,4 +65,9 @@ def updated_bill(bill: schemas.BillBase):
     updated_bill.execute()
     return updated_bill
 
+def delete_bill(bill: schemas.deleteBill):
+    deleted_bill = models.Bill.delete().where(models.Bill.bill_id == bill.bill_id)
+
+    deleted_bill.execute()
+    return deleted_bill
 

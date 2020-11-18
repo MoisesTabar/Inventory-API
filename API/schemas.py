@@ -37,3 +37,9 @@ class getAllBills(BillBase):
     itbis: int
     total: int
 
+class deleteBill(BaseModel):
+    bill_id: int = Any
+
+    class Config:
+        orm_mode = True
+        getter_dict = PeeweeGetterDict

@@ -47,3 +47,8 @@ def register_bill(bill: schemas.BillBase):
 def update_bill(bill: schemas.BillBase):
     updated_bill = crud.updated_bill(bill)
     return updated_bill
+
+@app.post('/bills/delete', response_model = schemas.deleteBill, dependencies = [Depends(get_db)])
+def delete_bill(bill: schemas.deleteBill):
+    deleted_bill = crud.delete_bill(bill)
+    return deleted_bill
